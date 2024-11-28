@@ -1,0 +1,440 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="adminschoolModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="8.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="escuela">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="text" Nullable="false" />
+          <Property Name="CodigoPostal" Type="text" Nullable="false" />
+          <Property Name="Calle" Type="text" />
+          <Property Name="NoInt" Type="int" />
+          <Property Name="NoExt" Type="int" />
+          <Property Name="Colonia" Type="text" />
+          <Property Name="Ciudad" Type="text" />
+          <Property Name="Municipio" Type="text" />
+          <Property Name="Estado" Type="text" />
+          <Property Name="Pais" Type="text" />
+          <Property Name="Correo" Type="text" />
+          <Property Name="Logo" Type="text" />
+        </EntityType>
+        <EntityType Name="estudiante">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="text" Nullable="false" />
+          <Property Name="ApellidoPaterno" Type="text" Nullable="false" />
+          <Property Name="ApellidoMaterno" Type="text" Nullable="false" />
+          <Property Name="FechaNacimiento" Type="timestamp" Precision="0" StoreGeneratedPattern="Identity" />
+          <Property Name="Genero" Type="enum" />
+          <Property Name="Edad" Type="int" />
+          <Property Name="Dirección" Type="text" Nullable="false" />
+          <Property Name="IdGrupo" Type="int" Nullable="false" />
+          <Property Name="Matricula" Type="text" Nullable="false" />
+          <Property Name="NombreTutor" Type="text" Nullable="false" />
+          <Property Name="Teléfono" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Correo" Type="text" />
+          <Property Name="Foto" Type="text" />
+        </EntityType>
+        <EntityType Name="grupo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="text" Nullable="false" />
+          <Property Name="Grado" Type="int" Nullable="false" />
+          <Property Name="Nivel" Type="enum" />
+          <Property Name="IdAsesor" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="profesor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="text" Nullable="false" />
+          <Property Name="ApellidoPaterno" Type="text" Nullable="false" />
+          <Property Name="ApellidoMaterno" Type="text" Nullable="false" />
+          <Property Name="FechaNacimiento" Type="timestamp" Precision="0" StoreGeneratedPattern="Identity" />
+          <Property Name="Genero" Type="enum" />
+          <Property Name="Edad" Type="int" />
+          <Property Name="Dirección" Type="text" Nullable="false" />
+          <Property Name="NumeroEmpleado" Type="text" Nullable="false" />
+          <Property Name="IdEscuela" Type="int" Nullable="false" />
+          <Property Name="Teléfono" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Correo" Type="text" />
+          <Property Name="Foto" Type="text" />
+        </EntityType>
+        <EntityType Name="usuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="text" Nullable="false" />
+          <Property Name="Apodo" Type="text" Nullable="false" />
+          <Property Name="Password" Type="text" Nullable="false" />
+          <Property Name="Privilegio" Type="enum" />
+          <Property Name="IdEscuela" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="estudiante_ibfk_1">
+          <End Role="grupo" Type="Self.grupo" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="estudiante" Type="Self.estudiante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="grupo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="estudiante">
+              <PropertyRef Name="IdGrupo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="grupo_ibfk_1">
+          <End Role="profesor" Type="Self.profesor" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="grupo" Type="Self.grupo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="profesor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="grupo">
+              <PropertyRef Name="IdAsesor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="profesor_ibfk_1">
+          <End Role="escuela" Type="Self.escuela" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="profesor" Type="Self.profesor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="escuela">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="profesor">
+              <PropertyRef Name="IdEscuela" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="usuario_ibfk_1">
+          <End Role="escuela" Type="Self.escuela" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="escuela">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="usuario">
+              <PropertyRef Name="IdEscuela" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="adminschoolModelStoreContainer">
+          <EntitySet Name="escuela" EntityType="Self.escuela" Schema="adminschool" store:Type="Tables" />
+          <EntitySet Name="estudiante" EntityType="Self.estudiante" Schema="adminschool" store:Type="Tables" />
+          <EntitySet Name="grupo" EntityType="Self.grupo" Schema="adminschool" store:Type="Tables" />
+          <EntitySet Name="profesor" EntityType="Self.profesor" Schema="adminschool" store:Type="Tables" />
+          <EntitySet Name="usuario" EntityType="Self.usuario" Schema="adminschool" store:Type="Tables" />
+          <AssociationSet Name="estudiante_ibfk_1" Association="Self.estudiante_ibfk_1">
+            <End Role="grupo" EntitySet="grupo" />
+            <End Role="estudiante" EntitySet="estudiante" />
+          </AssociationSet>
+          <AssociationSet Name="grupo_ibfk_1" Association="Self.grupo_ibfk_1">
+            <End Role="profesor" EntitySet="profesor" />
+            <End Role="grupo" EntitySet="grupo" />
+          </AssociationSet>
+          <AssociationSet Name="profesor_ibfk_1" Association="Self.profesor_ibfk_1">
+            <End Role="escuela" EntitySet="escuela" />
+            <End Role="profesor" EntitySet="profesor" />
+          </AssociationSet>
+          <AssociationSet Name="usuario_ibfk_1" Association="Self.usuario_ibfk_1">
+            <End Role="escuela" EntitySet="escuela" />
+            <End Role="usuario" EntitySet="usuario" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="adminschoolModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="escuela">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CodigoPostal" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Calle" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="NoInt" Type="Int32" />
+          <Property Name="NoExt" Type="Int32" />
+          <Property Name="Colonia" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="Ciudad" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="Municipio" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="Estado" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="Pais" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="Correo" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="Logo" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="profesor" Relationship="Self.profesor_ibfk_1" FromRole="escuela" ToRole="profesor" />
+          <NavigationProperty Name="usuario" Relationship="adminschoolModel.usuario_ibfk_1" FromRole="escuela" ToRole="usuario" />
+        </EntityType>
+        <EntityType Name="estudiante">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ApellidoPaterno" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ApellidoMaterno" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FechaNacimiento" Type="DateTime" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Genero" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" />
+          <Property Name="Edad" Type="Int32" />
+          <Property Name="Dirección" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdGrupo" Type="Int32" Nullable="false" />
+          <Property Name="Matricula" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NombreTutor" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Teléfono" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Correo" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="Foto" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="grupo" Relationship="Self.estudiante_ibfk_1" FromRole="estudiante" ToRole="grupo" />
+        </EntityType>
+        <EntityType Name="grupo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Grado" Type="Int32" Nullable="false" />
+          <Property Name="Nivel" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" />
+          <Property Name="IdAsesor" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="estudiante" Relationship="Self.estudiante_ibfk_1" FromRole="grupo" ToRole="estudiante" />
+          <NavigationProperty Name="profesor" Relationship="Self.grupo_ibfk_1" FromRole="grupo" ToRole="profesor" />
+        </EntityType>
+        <EntityType Name="profesor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ApellidoPaterno" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ApellidoMaterno" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FechaNacimiento" Type="DateTime" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Genero" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" />
+          <Property Name="Edad" Type="Int32" />
+          <Property Name="Dirección" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NumeroEmpleado" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdEscuela" Type="Int32" Nullable="false" />
+          <Property Name="Teléfono" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Correo" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="Foto" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="escuela" Relationship="Self.profesor_ibfk_1" FromRole="profesor" ToRole="escuela" />
+          <NavigationProperty Name="grupo" Relationship="Self.grupo_ibfk_1" FromRole="profesor" ToRole="grupo" />
+        </EntityType>
+        <Association Name="profesor_ibfk_1">
+          <End Role="escuela" Type="Self.escuela" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="profesor" Type="Self.profesor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="escuela">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="profesor">
+              <PropertyRef Name="IdEscuela" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="estudiante_ibfk_1">
+          <End Role="grupo" Type="Self.grupo" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="estudiante" Type="Self.estudiante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="grupo">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="estudiante">
+              <PropertyRef Name="IdGrupo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="grupo_ibfk_1">
+          <End Role="profesor" Type="Self.profesor" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="grupo" Type="Self.grupo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="profesor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="grupo">
+              <PropertyRef Name="IdAsesor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AdminschoolEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="escuela" EntityType="Self.escuela" />
+          <EntitySet Name="estudiante" EntityType="Self.estudiante" />
+          <EntitySet Name="grupo" EntityType="Self.grupo" />
+          <EntitySet Name="profesor" EntityType="Self.profesor" />
+          <AssociationSet Name="profesor_ibfk_1" Association="Self.profesor_ibfk_1">
+            <End Role="escuela" EntitySet="escuela" />
+            <End Role="profesor" EntitySet="profesor" />
+          </AssociationSet>
+          <AssociationSet Name="estudiante_ibfk_1" Association="Self.estudiante_ibfk_1">
+            <End Role="grupo" EntitySet="grupo" />
+            <End Role="estudiante" EntitySet="estudiante" />
+          </AssociationSet>
+          <AssociationSet Name="grupo_ibfk_1" Association="Self.grupo_ibfk_1">
+            <End Role="profesor" EntitySet="profesor" />
+            <End Role="grupo" EntitySet="grupo" />
+          </AssociationSet>
+          <EntitySet Name="usuario" EntityType="adminschoolModel.usuario" />
+          <AssociationSet Name="usuario_ibfk_1" Association="adminschoolModel.usuario_ibfk_1">
+            <End Role="escuela" EntitySet="escuela" />
+            <End Role="usuario" EntitySet="usuario" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="usuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="Apodo" Type="String" Nullable="false" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="Privilegio" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" />
+          <Property Name="IdEscuela" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="escuela" Relationship="adminschoolModel.usuario_ibfk_1" FromRole="usuario" ToRole="escuela" />
+        </EntityType>
+        <Association Name="usuario_ibfk_1">
+          <End Type="adminschoolModel.escuela" Role="escuela" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="adminschoolModel.usuario" Role="usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="escuela">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="usuario">
+              <PropertyRef Name="IdEscuela" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="adminschoolModelStoreContainer" CdmEntityContainer="AdminschoolEntities">
+          <EntitySetMapping Name="escuela">
+            <EntityTypeMapping TypeName="adminschoolModel.escuela">
+              <MappingFragment StoreEntitySet="escuela">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="CodigoPostal" ColumnName="CodigoPostal" />
+                <ScalarProperty Name="Calle" ColumnName="Calle" />
+                <ScalarProperty Name="NoInt" ColumnName="NoInt" />
+                <ScalarProperty Name="NoExt" ColumnName="NoExt" />
+                <ScalarProperty Name="Colonia" ColumnName="Colonia" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="Municipio" ColumnName="Municipio" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Pais" ColumnName="Pais" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Logo" ColumnName="Logo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="estudiante">
+            <EntityTypeMapping TypeName="adminschoolModel.estudiante">
+              <MappingFragment StoreEntitySet="estudiante">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
+                <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
+                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+                <ScalarProperty Name="Genero" ColumnName="Genero" />
+                <ScalarProperty Name="Edad" ColumnName="Edad" />
+                <ScalarProperty Name="Dirección" ColumnName="Dirección" />
+                <ScalarProperty Name="IdGrupo" ColumnName="IdGrupo" />
+                <ScalarProperty Name="Matricula" ColumnName="Matricula" />
+                <ScalarProperty Name="NombreTutor" ColumnName="NombreTutor" />
+                <ScalarProperty Name="Teléfono" ColumnName="Teléfono" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Foto" ColumnName="Foto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="grupo">
+            <EntityTypeMapping TypeName="adminschoolModel.grupo">
+              <MappingFragment StoreEntitySet="grupo">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Grado" ColumnName="Grado" />
+                <ScalarProperty Name="Nivel" ColumnName="Nivel" />
+                <ScalarProperty Name="IdAsesor" ColumnName="IdAsesor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="profesor">
+            <EntityTypeMapping TypeName="adminschoolModel.profesor">
+              <MappingFragment StoreEntitySet="profesor">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
+                <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
+                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+                <ScalarProperty Name="Genero" ColumnName="Genero" />
+                <ScalarProperty Name="Edad" ColumnName="Edad" />
+                <ScalarProperty Name="Dirección" ColumnName="Dirección" />
+                <ScalarProperty Name="NumeroEmpleado" ColumnName="NumeroEmpleado" />
+                <ScalarProperty Name="IdEscuela" ColumnName="IdEscuela" />
+                <ScalarProperty Name="Teléfono" ColumnName="Teléfono" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Foto" ColumnName="Foto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usuario">
+            <EntityTypeMapping TypeName="adminschoolModel.usuario">
+              <MappingFragment StoreEntitySet="usuario">
+                <ScalarProperty Name="IdEscuela" ColumnName="IdEscuela" />
+                <ScalarProperty Name="Privilegio" ColumnName="Privilegio" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Apodo" ColumnName="Apodo" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
