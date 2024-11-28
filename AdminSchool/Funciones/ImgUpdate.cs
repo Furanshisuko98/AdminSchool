@@ -10,7 +10,7 @@ namespace AdminSchool.Funciones
     class ImgUpdate
     {
         string RutaImg;
-        static string Folder = "Imágenes";
+        static string Folder = "/Imágenes";
 
         public ImgUpdate(string _RutaImg)
         {

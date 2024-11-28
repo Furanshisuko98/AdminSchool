@@ -17,6 +17,7 @@ namespace AdminSchool.Profesores
         public ListProf()
         {
             InitializeComponent();
+            Consulta();
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -29,6 +30,7 @@ namespace AdminSchool.Profesores
             dgvProfesor.DataSource = db.profesor.Select(
                 x => new
                 {
+                    Id = x.Id,
                     Numero = x.NumeroEmpleado,
                     Apellidos = x.ApellidoPaterno + " " + x.ApellidoMaterno,
                     Nombre = x.Nombre,
