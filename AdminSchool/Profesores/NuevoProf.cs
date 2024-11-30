@@ -50,6 +50,8 @@ namespace AdminSchool.Profesores
             db.profesor.Add(profesor);
             db.SaveChanges();
             new Funciones.ImgUpdate(ruta).GuardarImg();
+            MessageBox.Show("Profesor registrado satisfactoriamente");
+
 
         }
     }

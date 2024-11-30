@@ -227,6 +227,7 @@ namespace AdminSchool.Empresa
             this.MinimizeBox = false;
             this.Name = "DatosEmpresa";
             this.ShowIcon = false;
+            this.Load += new System.EventHandler(this.DatosEmpresa_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

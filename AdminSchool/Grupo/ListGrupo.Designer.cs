@@ -117,6 +117,7 @@ namespace AdminSchool.Grupo
             this.Name = "ListGrupo";
             this.ShowIcon = false;
             this.Text = "Lista de grupos";
+            this.Load += new System.EventHandler(this.ListGrupo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvGrupos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

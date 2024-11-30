@@ -65,5 +65,26 @@ namespace AdminSchool.Empresa
                 txtLogo.Text = ruta.ToString();
             }
         }
+
+        private void DatosEmpresa_Load(object sender, EventArgs e)
+        {
+            bool existeEscuela = db.escuela.Any();
+            if (existeEscuela)
+            {
+                escuela escuela = db.escuela.Where(x => x.Id == 1).FirstOrDefault();
+                txtNombre.Text = escuela.Nombre;
+                txtCP.Text = escuela.CodigoPostal;
+                txtCalle.Text = escuela.Calle;
+                txtNoExt.Text = escuela.NoExt.ToString();
+                txtNoInt.Text = escuela.NoInt.ToString();
+                txtColonia.Text = escuela.Colonia;
+                txtCiudad.Text = escuela.Ciudad;
+                txtMunicipio.Text = escuela.Estado;
+                txtEstado.Text = escuela.Estado;
+                txtPais.Text = escuela.Pais;
+                txtCorreo.Text = escuela.Correo;
+                txtLogo.Text = escuela.Logo;
+            }
+        }
     }
 }
