@@ -57,9 +57,9 @@ namespace AdminSchool.Estudiantes
                 if (MessageBox.Show("¿Deseas Continuar?", "Advertencia", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
                 {
                     int fila = dgvAlumnos.CurrentRow.Index;
-                    int id = Convert.ToInt32(dgvAlumnos["", fila].Value);
+                    string Matricula = dgvAlumnos["Matricula", fila].Value.ToString();
 
-                    estudiante estudiante = db.estudiante.Find(id);
+                    estudiante estudiante = db.estudiante.Find(Matricula);
 
                     new Funciones.ImgUpdate(estudiante.Foto).DeleteImg();
 

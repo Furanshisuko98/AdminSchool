@@ -54,9 +54,9 @@ namespace AdminSchool.Profesores
                 if (MessageBox.Show("¿Deseas Continuar?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
                     int fila = dgvProfesor.CurrentRow.Index;
-                    int Id = Convert.ToInt32(dgvProfesor["Id", fila].Value);
+                    string NoEmpleado = dgvProfesor["Numero", fila].Value.ToString();
 
-                    profesor profesor = db.profesor.Find(Id);
+                    profesor profesor = db.profesor.Find(NoEmpleado);
                     new Funciones.ImgUpdate(profesor.Foto).DeleteImg();
 
                     db.profesor.Remove(profesor);
