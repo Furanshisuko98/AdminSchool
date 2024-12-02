@@ -747,7 +747,7 @@
     <value>27</value>
   </data>
   <data name="btnRegistrar.Text" xml:space="preserve">
-    <value>Registrar</value>
+    <value>Modificar</value>
   </data>
   <data name="&gt;&gt;btnRegistrar.Name" xml:space="preserve">
     <value>btnRegistrar</value>

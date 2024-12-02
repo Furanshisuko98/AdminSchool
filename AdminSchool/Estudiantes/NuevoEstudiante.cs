@@ -43,6 +43,8 @@ namespace AdminSchool.Estudiantes
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
+            new Funciones.ImgUpdate(ruta).GuardarImg();
+
             estudiante estudiante = new estudiante();
             estudiante.Nombre = txtNombre.Text;
             estudiante.ApellidoPaterno = txtPaterno.Text;
@@ -59,9 +61,7 @@ namespace AdminSchool.Estudiantes
             estudiante.Foto = Path.GetFileName(ruta);
             db.estudiante.Add(estudiante);
             db.SaveChanges();
-            new Funciones.ImgUpdate(ruta).GuardarImg();
-            MessageBox.Show("Estudiante registrado satisfactoriamente");
-
+            MessageBox.Show("Estudiante registrado satisfactoriamente", "Registro completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

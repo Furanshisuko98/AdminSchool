@@ -153,11 +153,23 @@
     <Compile Include="Empresa\DatosEmpresa.Designer.cs">
       <DependentUpon>DatosEmpresa.cs</DependentUpon>
     </Compile>
+    <Compile Include="Empresa\NuevaEmpresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Empresa\NuevaEmpresa.Designer.cs">
+      <DependentUpon>NuevaEmpresa.cs</DependentUpon>
+    </Compile>
     <Compile Include="escuela.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="estudiante.cs">
       <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Estudiantes\DetalleEstudiante.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Estudiantes\DetalleEstudiante.Designer.cs">
+      <DependentUpon>DetalleEstudiante.cs</DependentUpon>
     </Compile>
     <Compile Include="Estudiantes\ListEstudiantes.cs">
       <SubType>Form</SubType>
@@ -180,6 +192,12 @@
     <Compile Include="Funciones\ImgUpdate.cs" />
     <Compile Include="grupo.cs">
       <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Grupo\DetallesGrupo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Grupo\DetallesGrupo.Designer.cs">
+      <DependentUpon>DetallesGrupo.cs</DependentUpon>
     </Compile>
     <Compile Include="Grupo\ListGrupo.cs">
       <SubType>Form</SubType>
@@ -217,6 +235,12 @@
     <Compile Include="profesor.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Profesores\DetallesProfesor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Profesores\DetallesProfesor.Designer.cs">
+      <DependentUpon>DetallesProfesor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Profesores\ListProf.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -249,6 +273,12 @@
     <EmbeddedResource Include="Empresa\DatosEmpresa.resx">
       <DependentUpon>DatosEmpresa.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Empresa\NuevaEmpresa.resx">
+      <DependentUpon>NuevaEmpresa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Estudiantes\DetalleEstudiante.resx">
+      <DependentUpon>DetalleEstudiante.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Estudiantes\ListEstudiantes.resx">
       <DependentUpon>ListEstudiantes.cs</DependentUpon>
     </EmbeddedResource>
@@ -258,6 +288,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Grupo\DetallesGrupo.resx">
+      <DependentUpon>DetallesGrupo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Grupo\ListGrupo.resx">
       <DependentUpon>ListGrupo.cs</DependentUpon>
     </EmbeddedResource>
@@ -266,6 +299,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Profesores\DetallesProfesor.resx">
+      <DependentUpon>DetallesProfesor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Profesores\ListProf.resx">
       <DependentUpon>ListProf.cs</DependentUpon>
@@ -394,6 +430,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\programacion-web.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

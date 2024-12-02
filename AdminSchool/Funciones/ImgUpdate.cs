@@ -40,7 +40,8 @@ namespace AdminSchool.Funciones
 
         public bool DeleteImg()
         {
-            File.Delete(Folder + "/" + RutaImg);
+            string Nombre = Path.GetFileName(RutaImg);
+            File.Delete(Folder + "/" + Nombre);
             return true;
         }
 

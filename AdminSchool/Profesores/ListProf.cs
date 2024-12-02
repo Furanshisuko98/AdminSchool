@@ -23,6 +23,7 @@ namespace AdminSchool.Profesores
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             new Profesores.NuevoProf().ShowDialog();
+            Consulta();
         }
 
         private void Consulta()
@@ -51,20 +52,25 @@ namespace AdminSchool.Profesores
         {
             if (dgvProfesor.Rows.Count > 0)
             {
-                if (MessageBox.Show("¿Deseas Continuar", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                if (MessageBox.Show("¿Deseas Continuar?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
                     int fila = dgvProfesor.CurrentRow.Index;
                     int Id = Convert.ToInt32(dgvProfesor["Id", fila].Value);
 
                     profesor profesor = db.profesor.Find(Id);
-
-                    //new Funciones.ImgUpdate(profesor.Foto).DeleteImg();
+                    new Funciones.ImgUpdate(profesor.Foto).DeleteImg();
 
                     db.profesor.Remove(profesor);
                     db.SaveChanges();
                     Consulta();
                 }
             }
+        }
+
+        private void btnDetalles_Click(object sender, EventArgs e)
+        {
+            int Id = Convert.ToInt32(dgvProfesor["Id", dgvProfesor.CurrentRow.Index].Value);
+            new DetallesProfesor(Id).ShowDialog();
         }
     }
 }

@@ -44,9 +44,10 @@ namespace AdminSchool
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesiónToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbEscuela = new System.Windows.Forms.PictureBox();
+            this.utilidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbEscuela)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -54,9 +55,10 @@ namespace AdminSchool
             this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.estudiantesToolStripMenuItem,
             this.profesoresToolStripMenuItem,
             this.materiasToolStripMenuItem,
+            this.estudiantesToolStripMenuItem,
+            this.utilidadesToolStripMenuItem,
             this.administracionToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -187,31 +189,39 @@ namespace AdminSchool
             this.cerrarSesiónToolStripMenuItem1.Text = "Cerrar sesión";
             this.cerrarSesiónToolStripMenuItem1.Click += new System.EventHandler(this.cerrarSesiónToolStripMenuItem1_Click);
             // 
-            // pictureBox1
+            // pbEscuela
             // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 40);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(800, 410);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.pbEscuela.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbEscuela.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbEscuela.Location = new System.Drawing.Point(0, 40);
+            this.pbEscuela.Name = "pbEscuela";
+            this.pbEscuela.Size = new System.Drawing.Size(800, 410);
+            this.pbEscuela.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbEscuela.TabIndex = 1;
+            this.pbEscuela.TabStop = false;
+            // 
+            // utilidadesToolStripMenuItem
+            // 
+            this.utilidadesToolStripMenuItem.Image = global::AdminSchool.Properties.Resources.programacion_web;
+            this.utilidadesToolStripMenuItem.Name = "utilidadesToolStripMenuItem";
+            this.utilidadesToolStripMenuItem.Size = new System.Drawing.Size(123, 36);
+            this.utilidadesToolStripMenuItem.Text = "Utilidades";
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pbEscuela);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Main";
             this.Text = "AdminSchool";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Main_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbEscuela)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -234,7 +244,8 @@ namespace AdminSchool
         private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cerrarSesiónToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cerrarSesiónToolStripMenuItem1;
-        public System.Windows.Forms.PictureBox pictureBox1;
+        public System.Windows.Forms.PictureBox pbEscuela;
+        private System.Windows.Forms.ToolStripMenuItem utilidadesToolStripMenuItem;
     }
 }
 

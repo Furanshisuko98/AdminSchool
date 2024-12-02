@@ -47,6 +47,7 @@ namespace AdminSchool.Grupo
             this.btnEliminar.TabIndex = 12;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // comboBox1
             // 
@@ -66,6 +67,7 @@ namespace AdminSchool.Grupo
             this.btnDetalles.TabIndex = 10;
             this.btnDetalles.Text = "Detalles";
             this.btnDetalles.UseVisualStyleBackColor = true;
+            this.btnDetalles.Click += new System.EventHandler(this.btnDetalles_Click);
             // 
             // textBox1
             // 
@@ -97,14 +99,14 @@ namespace AdminSchool.Grupo
             this.dgvGrupos.Location = new System.Drawing.Point(12, 86);
             this.dgvGrupos.Name = "dgvGrupos";
             this.dgvGrupos.ReadOnly = true;
-            this.dgvGrupos.Size = new System.Drawing.Size(776, 352);
+            this.dgvGrupos.Size = new System.Drawing.Size(594, 352);
             this.dgvGrupos.TabIndex = 7;
             // 
             // ListGrupo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(623, 450);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.btnDetalles);

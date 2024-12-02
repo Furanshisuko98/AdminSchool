@@ -48,7 +48,7 @@ namespace AdminSchool.Estudiantes
             this.dgvAlumnos.Location = new System.Drawing.Point(12, 86);
             this.dgvAlumnos.Name = "dgvAlumnos";
             this.dgvAlumnos.ReadOnly = true;
-            this.dgvAlumnos.Size = new System.Drawing.Size(776, 352);
+            this.dgvAlumnos.Size = new System.Drawing.Size(743, 352);
             this.dgvAlumnos.TabIndex = 0;
             // 
             // btnNuevo
@@ -80,6 +80,7 @@ namespace AdminSchool.Estudiantes
             this.btnDetalles.TabIndex = 4;
             this.btnDetalles.Text = "Detalles";
             this.btnDetalles.UseVisualStyleBackColor = true;
+            this.btnDetalles.Click += new System.EventHandler(this.btnDetalles_Click);
             // 
             // comboBox1
             // 
@@ -99,12 +100,13 @@ namespace AdminSchool.Estudiantes
             this.btnEliminar.TabIndex = 6;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // ListEstudiantes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(768, 450);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.btnDetalles);
@@ -117,6 +119,7 @@ namespace AdminSchool.Estudiantes
             this.Name = "ListEstudiantes";
             this.ShowIcon = false;
             this.Text = "Lista de alumnos";
+            this.Load += new System.EventHandler(this.ListEstudiantes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

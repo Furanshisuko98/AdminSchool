@@ -13,6 +13,7 @@ namespace AdminSchool
 {
     public partial class Main : Form
     {
+        AdminschoolEntities db = new AdminschoolEntities();
         public Main()
         {
             InitializeComponent();
@@ -40,8 +41,8 @@ namespace AdminSchool
 
         private void cerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Process.Start(@"D:\Visual Studio Proyect\AdminSchool\AdminSchool\Resources\AnyDesk.exe");
-        }
+            //Process.Start("~/AnyDesk.exe");
+        } 
 
         private void cerrarSesiónToolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -66,6 +67,12 @@ namespace AdminSchool
         private void datosDeLaEscuelaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new Empresa.DatosEmpresa().ShowDialog();
+        }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+            var escuela = db.escuela.Where(x => x.Id == 1).FirstOrDefault();
+            pbEscuela.ImageLocation = "Imágenes/" + escuela.Logo;
         }
     }
 }
