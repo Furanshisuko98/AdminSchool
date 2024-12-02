@@ -15,20 +15,20 @@ namespace AdminSchool.Profesores
     public partial class DetallesProfesor : Form
     {
         string ruta = "";
-        int Id;
+        string NoEmpleado;
 
         AdminschoolEntities db = new AdminschoolEntities();
         profesor profesor = new profesor();
 
-        public DetallesProfesor(int _Id)
+        public DetallesProfesor(string _NoEmpleado)
         {
-            Id = _Id;
+            NoEmpleado = _NoEmpleado;
             InitializeComponent();
         }
 
         private void DetallesProfesor_Load(object sender, EventArgs e)
         {
-            profesor = db.profesor.Where(x => x.Id == Id).FirstOrDefault();
+            profesor = db.profesor.Where(x => x.NumeroEmpleado == NoEmpleado).FirstOrDefault();
 
             txtNombre.Text = profesor.Nombre;
             txtPaterno.Text = profesor.ApellidoPaterno;

@@ -16,14 +16,14 @@ namespace AdminSchool.Estudiantes
     public partial class DetalleEstudiante : Form
     {
         string ruta = "";
-        int Id;
+        string Matricula;
 
         AdminschoolEntities db = new AdminschoolEntities();
         estudiante estudiante = new estudiante();
 
-        public DetalleEstudiante(int _id)
+        public DetalleEstudiante(string _matricula)
         {
-            Id = _id; 
+            Matricula = _matricula; 
             InitializeComponent();
 
             var grupo = db.grupo.ToList();
@@ -35,7 +35,7 @@ namespace AdminSchool.Estudiantes
 
         private void DetalleEstudiante_Load(object sender, EventArgs e)
         {
-            estudiante = db.estudiante.Where(x => x.Id == Id).FirstOrDefault();
+            estudiante = db.estudiante.Where(x => x.Matricula == Matricula).FirstOrDefault();
 
             if (estudiante != null)
             {

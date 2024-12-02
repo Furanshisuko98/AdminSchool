@@ -34,7 +34,7 @@ namespace AdminSchool.Grupo
             dgvGrupos.DataSource = db.grupo.Select(
                x => new
                {
-                   Id = x.Id,
+                   Numero = x.Id,
                    Nombre = x.Nombre,
                    Grado = x.Grado,
                    Nivel = x.Nivel,

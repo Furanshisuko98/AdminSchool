@@ -44,7 +44,6 @@ namespace AdminSchool.Empresa
             db.Entry(escuela).State = EntityState.Modified;
             db.SaveChanges();
             
-            new Funciones.ImgUpdate(ruta).GuardarImg();
 
             if (MessageBox.Show("Modificación realizada con exito", "Actualizacion", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
             {
@@ -62,6 +61,10 @@ namespace AdminSchool.Empresa
                 ruta = img.FileName;
                 txtLogo.Text = ruta.ToString();
             }
+
+            new Funciones.ImgUpdate(ruta).GuardarImg();
+
+
         }
     }
 }

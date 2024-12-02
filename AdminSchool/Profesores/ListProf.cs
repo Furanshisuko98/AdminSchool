@@ -31,7 +31,6 @@ namespace AdminSchool.Profesores
             dgvProfesor.DataSource = db.profesor.Select(
                 x => new
                 {
-                    Id = x.Id,
                     Numero = x.NumeroEmpleado,
                     Apellidos = x.ApellidoPaterno + " " + x.ApellidoMaterno,
                     Nombre = x.Nombre,
@@ -69,8 +68,8 @@ namespace AdminSchool.Profesores
 
         private void btnDetalles_Click(object sender, EventArgs e)
         {
-            int Id = Convert.ToInt32(dgvProfesor["Id", dgvProfesor.CurrentRow.Index].Value);
-            new DetallesProfesor(Id).ShowDialog();
+            string NoEmpleado = dgvProfesor["Numero", dgvProfesor.CurrentRow.Index].Value.ToString();
+            new DetallesProfesor(NoEmpleado).ShowDialog();
         }
     }
 }

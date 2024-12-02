@@ -35,7 +35,6 @@ namespace AdminSchool.Estudiantes
         {
             dgvAlumnos.DataSource = db.estudiante.Select(x => new
             {
-                Id = x.Id,
                 Matricula = x.Matricula,
                 Nombre = x.Nombre,
                 Apellidos = x.ApellidoPaterno + " " + x.ApellidoMaterno,
@@ -47,8 +46,8 @@ namespace AdminSchool.Estudiantes
 
         private void btnDetalles_Click(object sender, EventArgs e)
         {
-            int Id = Convert.ToInt32(dgvAlumnos["Id", dgvAlumnos.CurrentRow.Index].Value);
-            new DetalleEstudiante(Id).ShowDialog();
+            string Matricula = dgvAlumnos["Matricula", dgvAlumnos.CurrentRow.Index].Value.ToString();
+            new DetalleEstudiante(Matricula).ShowDialog();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -58,7 +57,7 @@ namespace AdminSchool.Estudiantes
                 if (MessageBox.Show("¿Deseas Continuar?", "Advertencia", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
                 {
                     int fila = dgvAlumnos.CurrentRow.Index;
-                    int id = Convert.ToInt32(dgvAlumnos["id", fila].Value);
+                    int id = Convert.ToInt32(dgvAlumnos["", fila].Value);
 
                     estudiante estudiante = db.estudiante.Find(id);
 
