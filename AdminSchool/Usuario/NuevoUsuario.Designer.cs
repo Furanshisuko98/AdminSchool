@@ -52,6 +52,7 @@ namespace AdminSchool.Usuario
             // 
             // txtNombre
             // 
+            this.txtNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombre.Location = new System.Drawing.Point(15, 27);
             this.txtNombre.Name = "txtNombre";
@@ -60,6 +61,7 @@ namespace AdminSchool.Usuario
             // 
             // txtUsuario
             // 
+            this.txtUsuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsuario.Location = new System.Drawing.Point(15, 99);
             this.txtUsuario.Name = "txtUsuario";
@@ -78,6 +80,7 @@ namespace AdminSchool.Usuario
             // 
             // txtPassword
             // 
+            this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.Location = new System.Drawing.Point(15, 175);
             this.txtPassword.Name = "txtPassword";
@@ -108,10 +111,14 @@ namespace AdminSchool.Usuario
             // 
             this.tcbPrivilegios.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tcbPrivilegios.FormattingEnabled = true;
+            this.tcbPrivilegios.Items.AddRange(new object[] {
+            "admin",
+            "comun"});
             this.tcbPrivilegios.Location = new System.Drawing.Point(15, 248);
             this.tcbPrivilegios.Name = "tcbPrivilegios";
             this.tcbPrivilegios.Size = new System.Drawing.Size(258, 28);
             this.tcbPrivilegios.TabIndex = 7;
+            this.tcbPrivilegios.Text = "Seleccionar privilegios";
             // 
             // btnRegistrar
             // 
@@ -121,6 +128,7 @@ namespace AdminSchool.Usuario
             this.btnRegistrar.TabIndex = 8;
             this.btnRegistrar.Text = "Registrar";
             this.btnRegistrar.UseVisualStyleBackColor = true;
+            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
             // NuevoUsuario
             // 
@@ -141,7 +149,7 @@ namespace AdminSchool.Usuario
             this.MinimizeBox = false;
             this.Name = "NuevoUsuario";
             this.ShowIcon = false;
-            this.Text = "NuevoUsuario";
+            this.Text = "Nuevo usuario";
             this.ResumeLayout(false);
             this.PerformLayout();
 

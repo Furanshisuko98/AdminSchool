@@ -30,22 +30,25 @@ namespace AdminSchool
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.estudiantesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.nuevoEstudianteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listaDeEstudiantesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.profesoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoProfesorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listaDeProfesoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.materiasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoGrupoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listaDeGruposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.estudiantesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nuevoEstudianteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listaDeEstudiantesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.utilidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administracionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.datosDeLaEscuelaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesiónToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.pbEscuela = new System.Windows.Forms.PictureBox();
-            this.utilidadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.asistenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.credencialesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbEscuela)).BeginInit();
             this.SuspendLayout();
@@ -66,32 +69,6 @@ namespace AdminSchool
             this.menuStrip1.Size = new System.Drawing.Size(800, 40);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // estudiantesToolStripMenuItem
-            // 
-            this.estudiantesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.nuevoEstudianteToolStripMenuItem,
-            this.listaDeEstudiantesToolStripMenuItem});
-            this.estudiantesToolStripMenuItem.Image = global::AdminSchool.Properties.Resources.leer;
-            this.estudiantesToolStripMenuItem.Name = "estudiantesToolStripMenuItem";
-            this.estudiantesToolStripMenuItem.Size = new System.Drawing.Size(133, 36);
-            this.estudiantesToolStripMenuItem.Text = "Estudiantes";
-            // 
-            // nuevoEstudianteToolStripMenuItem
-            // 
-            this.nuevoEstudianteToolStripMenuItem.Image = global::AdminSchool.Properties.Resources.agregar_usuario1;
-            this.nuevoEstudianteToolStripMenuItem.Name = "nuevoEstudianteToolStripMenuItem";
-            this.nuevoEstudianteToolStripMenuItem.Size = new System.Drawing.Size(232, 38);
-            this.nuevoEstudianteToolStripMenuItem.Text = "Nuevo estudiante";
-            this.nuevoEstudianteToolStripMenuItem.Click += new System.EventHandler(this.nuevoEstudianteToolStripMenuItem_Click);
-            // 
-            // listaDeEstudiantesToolStripMenuItem
-            // 
-            this.listaDeEstudiantesToolStripMenuItem.Image = global::AdminSchool.Properties.Resources.aprendiendo;
-            this.listaDeEstudiantesToolStripMenuItem.Name = "listaDeEstudiantesToolStripMenuItem";
-            this.listaDeEstudiantesToolStripMenuItem.Size = new System.Drawing.Size(232, 38);
-            this.listaDeEstudiantesToolStripMenuItem.Text = "Lista de estudiantes";
-            this.listaDeEstudiantesToolStripMenuItem.Click += new System.EventHandler(this.listaDeEstudiantesToolStripMenuItem_Click);
             // 
             // profesoresToolStripMenuItem
             // 
@@ -144,6 +121,43 @@ namespace AdminSchool
             this.listaDeGruposToolStripMenuItem.Size = new System.Drawing.Size(202, 38);
             this.listaDeGruposToolStripMenuItem.Text = "Lista de grupos";
             this.listaDeGruposToolStripMenuItem.Click += new System.EventHandler(this.listaDeGruposToolStripMenuItem_Click);
+            // 
+            // estudiantesToolStripMenuItem
+            // 
+            this.estudiantesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.nuevoEstudianteToolStripMenuItem,
+            this.listaDeEstudiantesToolStripMenuItem});
+            this.estudiantesToolStripMenuItem.Image = global::AdminSchool.Properties.Resources.leer;
+            this.estudiantesToolStripMenuItem.Name = "estudiantesToolStripMenuItem";
+            this.estudiantesToolStripMenuItem.Size = new System.Drawing.Size(133, 36);
+            this.estudiantesToolStripMenuItem.Text = "Estudiantes";
+            // 
+            // nuevoEstudianteToolStripMenuItem
+            // 
+            this.nuevoEstudianteToolStripMenuItem.Image = global::AdminSchool.Properties.Resources.agregar_usuario1;
+            this.nuevoEstudianteToolStripMenuItem.Name = "nuevoEstudianteToolStripMenuItem";
+            this.nuevoEstudianteToolStripMenuItem.Size = new System.Drawing.Size(232, 38);
+            this.nuevoEstudianteToolStripMenuItem.Text = "Nuevo estudiante";
+            this.nuevoEstudianteToolStripMenuItem.Click += new System.EventHandler(this.nuevoEstudianteToolStripMenuItem_Click);
+            // 
+            // listaDeEstudiantesToolStripMenuItem
+            // 
+            this.listaDeEstudiantesToolStripMenuItem.Image = global::AdminSchool.Properties.Resources.aprendiendo;
+            this.listaDeEstudiantesToolStripMenuItem.Name = "listaDeEstudiantesToolStripMenuItem";
+            this.listaDeEstudiantesToolStripMenuItem.Size = new System.Drawing.Size(232, 38);
+            this.listaDeEstudiantesToolStripMenuItem.Text = "Lista de estudiantes";
+            this.listaDeEstudiantesToolStripMenuItem.Click += new System.EventHandler(this.listaDeEstudiantesToolStripMenuItem_Click);
+            // 
+            // utilidadesToolStripMenuItem
+            // 
+            this.utilidadesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.asistenciaToolStripMenuItem,
+            this.credencialesToolStripMenuItem,
+            this.listasToolStripMenuItem});
+            this.utilidadesToolStripMenuItem.Image = global::AdminSchool.Properties.Resources.programacion_web;
+            this.utilidadesToolStripMenuItem.Name = "utilidadesToolStripMenuItem";
+            this.utilidadesToolStripMenuItem.Size = new System.Drawing.Size(123, 36);
+            this.utilidadesToolStripMenuItem.Text = "Utilidades";
             // 
             // administracionToolStripMenuItem
             // 
@@ -200,12 +214,23 @@ namespace AdminSchool
             this.pbEscuela.TabIndex = 1;
             this.pbEscuela.TabStop = false;
             // 
-            // utilidadesToolStripMenuItem
+            // asistenciaToolStripMenuItem
             // 
-            this.utilidadesToolStripMenuItem.Image = global::AdminSchool.Properties.Resources.programacion_web;
-            this.utilidadesToolStripMenuItem.Name = "utilidadesToolStripMenuItem";
-            this.utilidadesToolStripMenuItem.Size = new System.Drawing.Size(123, 36);
-            this.utilidadesToolStripMenuItem.Text = "Utilidades";
+            this.asistenciaToolStripMenuItem.Name = "asistenciaToolStripMenuItem";
+            this.asistenciaToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.asistenciaToolStripMenuItem.Text = "Asistencia";
+            // 
+            // credencialesToolStripMenuItem
+            // 
+            this.credencialesToolStripMenuItem.Name = "credencialesToolStripMenuItem";
+            this.credencialesToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.credencialesToolStripMenuItem.Text = "Credenciales";
+            // 
+            // listasToolStripMenuItem
+            // 
+            this.listasToolStripMenuItem.Name = "listasToolStripMenuItem";
+            this.listasToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.listasToolStripMenuItem.Text = "Listas";
             // 
             // Main
             // 
@@ -246,6 +271,9 @@ namespace AdminSchool
         private System.Windows.Forms.ToolStripMenuItem cerrarSesiónToolStripMenuItem1;
         public System.Windows.Forms.PictureBox pbEscuela;
         private System.Windows.Forms.ToolStripMenuItem utilidadesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem asistenciaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem credencialesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listasToolStripMenuItem;
     }
 }
 

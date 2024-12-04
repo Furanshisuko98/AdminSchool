@@ -93,6 +93,8 @@ namespace AdminSchool.Profesores
             // 
             this.dgvProfesor.AllowUserToAddRows = false;
             this.dgvProfesor.AllowUserToDeleteRows = false;
+            this.dgvProfesor.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvProfesor.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvProfesor.BackgroundColor = System.Drawing.SystemColors.ButtonShadow;
             this.dgvProfesor.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvProfesor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;

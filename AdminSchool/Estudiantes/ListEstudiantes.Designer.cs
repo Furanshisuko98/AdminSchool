@@ -31,10 +31,10 @@ namespace AdminSchool.Estudiantes
         {
             this.dgvAlumnos = new System.Windows.Forms.DataGridView();
             this.btnNuevo = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnDetalles = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.btnEliminar = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,13 +42,15 @@ namespace AdminSchool.Estudiantes
             // 
             this.dgvAlumnos.AllowUserToAddRows = false;
             this.dgvAlumnos.AllowUserToDeleteRows = false;
+            this.dgvAlumnos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvAlumnos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvAlumnos.BackgroundColor = System.Drawing.SystemColors.ButtonShadow;
             this.dgvAlumnos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAlumnos.Location = new System.Drawing.Point(12, 86);
             this.dgvAlumnos.Name = "dgvAlumnos";
             this.dgvAlumnos.ReadOnly = true;
-            this.dgvAlumnos.Size = new System.Drawing.Size(743, 352);
+            this.dgvAlumnos.Size = new System.Drawing.Size(840, 352);
             this.dgvAlumnos.TabIndex = 0;
             // 
             // btnNuevo
@@ -62,15 +64,6 @@ namespace AdminSchool.Estudiantes
             this.btnNuevo.UseVisualStyleBackColor = true;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
-            // textBox1
-            // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(354, 46);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(167, 26);
-            this.textBox1.TabIndex = 3;
-            // 
             // btnDetalles
             // 
             this.btnDetalles.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -81,15 +74,6 @@ namespace AdminSchool.Estudiantes
             this.btnDetalles.Text = "Detalles";
             this.btnDetalles.UseVisualStyleBackColor = true;
             this.btnDetalles.Click += new System.EventHandler(this.btnDetalles_Click);
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(354, 12);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(167, 28);
-            this.comboBox1.TabIndex = 5;
             // 
             // btnEliminar
             // 
@@ -102,11 +86,29 @@ namespace AdminSchool.Estudiantes
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(354, 46);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(167, 26);
+            this.textBox1.TabIndex = 3;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(354, 12);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(167, 28);
+            this.comboBox1.TabIndex = 5;
+            // 
             // ListEstudiantes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(768, 450);
+            this.ClientSize = new System.Drawing.Size(867, 450);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.btnDetalles);
@@ -130,9 +132,9 @@ namespace AdminSchool.Estudiantes
 
         private System.Windows.Forms.DataGridView dgvAlumnos;
         private System.Windows.Forms.Button btnNuevo;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btnDetalles;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

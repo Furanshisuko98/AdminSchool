@@ -16,5 +16,10 @@ namespace AdminSchool.Usuario
         {
             InitializeComponent();
         }
+
+        private void btnRegistrar_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

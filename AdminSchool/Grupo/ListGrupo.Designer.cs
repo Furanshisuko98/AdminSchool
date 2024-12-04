@@ -93,20 +93,22 @@ namespace AdminSchool.Grupo
             // 
             this.dgvGrupos.AllowUserToAddRows = false;
             this.dgvGrupos.AllowUserToDeleteRows = false;
+            this.dgvGrupos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvGrupos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvGrupos.BackgroundColor = System.Drawing.SystemColors.ButtonShadow;
             this.dgvGrupos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvGrupos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvGrupos.Location = new System.Drawing.Point(12, 86);
             this.dgvGrupos.Name = "dgvGrupos";
             this.dgvGrupos.ReadOnly = true;
-            this.dgvGrupos.Size = new System.Drawing.Size(594, 352);
+            this.dgvGrupos.Size = new System.Drawing.Size(840, 352);
             this.dgvGrupos.TabIndex = 7;
             // 
             // ListGrupo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(623, 450);
+            this.ClientSize = new System.Drawing.Size(867, 450);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.btnDetalles);
