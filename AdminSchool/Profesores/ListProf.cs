@@ -32,8 +32,8 @@ namespace AdminSchool.Profesores
                 x => new
                 {
                     Numero = x.NumeroEmpleado,
-                    Apellidos = x.ApellidoPaterno + " " + x.ApellidoMaterno,
                     Nombre = x.Nombre,
+                    Apellidos = x.ApellidoPaterno + " " + x.ApellidoMaterno,
                     Genero = x.Genero,
                     Edad = x.Edad + " Años",
                     Teléfono = x.Teléfono,
@@ -70,6 +70,12 @@ namespace AdminSchool.Profesores
         {
             string NoEmpleado = dgvProfesor["Numero", dgvProfesor.CurrentRow.Index].Value.ToString();
             new DetallesProfesor(NoEmpleado).ShowDialog();
+        }
+
+
+        private void txtBusqueda_TextChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

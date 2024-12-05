@@ -53,10 +53,15 @@ namespace AdminSchool.Profesores
             // 
             this.tcbCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tcbCategoria.FormattingEnabled = true;
+            this.tcbCategoria.Items.AddRange(new object[] {
+            "Numero",
+            "Nombre",
+            "Apellidos"});
             this.tcbCategoria.Location = new System.Drawing.Point(368, 12);
             this.tcbCategoria.Name = "tcbCategoria";
             this.tcbCategoria.Size = new System.Drawing.Size(167, 28);
             this.tcbCategoria.TabIndex = 11;
+            this.tcbCategoria.Text = "Numero";
             // 
             // btnDetalles
             // 
@@ -77,6 +82,7 @@ namespace AdminSchool.Profesores
             this.txtBusqueda.Name = "txtBusqueda";
             this.txtBusqueda.Size = new System.Drawing.Size(167, 26);
             this.txtBusqueda.TabIndex = 9;
+            this.txtBusqueda.TextChanged += new System.EventHandler(this.txtBusqueda_TextChanged);
             // 
             // btnNuevo
             // 

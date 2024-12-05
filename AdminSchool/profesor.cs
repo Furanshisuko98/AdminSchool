@@ -37,5 +37,6 @@ namespace AdminSchool
         public virtual escuela escuela { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<grupo> grupo { get; set; }
+        public object DefaultView { get; internal set; }
     }
 }
